@@ -362,7 +362,7 @@ SPELLS = [
   Spell("Dominate Person", 5, ENC),
   Spell("Draconic Transformation", 7, TRA),
   Spell("Dragon's Breath", 2, TRA),
-  Spell("Dramij's Instant Summons", 6, CON),
+  Spell("Drawmij's Instant Summons", 6, CON),
   Spell("Dream", 5, ILL),
   Spell("Druid Grove", 6, ABJ),
   Spell("Druidcraft", 0, TRA),
@@ -439,7 +439,7 @@ SPELLS = [
   Spell("Greater Restoration", 5, ABJ),
   Spell("Green-Flame Blade", 0, EVO),
   Spell("Guardian of Faith", 4, CON),
-  Spell("Guardian of Nuture", 4, TRA),
+  Spell("Guardian of Nature", 4, TRA),
   Spell("Guards and Wards", 6, ABJ),
   Spell("Guidance", 0, DIV),
   Spell("Guiding Bolt", 1, EVO),
@@ -694,7 +694,7 @@ SPELLS = [
   Spell("Tenser's Transformation", 6, TRA),
   Spell("Tether Essence", 7, NEC),
   Spell("Thaumaturgy", 0, TRA),
-  Spell("Thron Whip", 0, TRA),
+  Spell("Thorn Whip", 0, TRA),
   Spell("Thunder Step", 3, CON),
   Spell("Thunderclap", 0, EVO),
   Spell("Thunderous Smite", 1, EVO),
@@ -893,6 +893,7 @@ ITEMS = [
   Item("Elemental Gem (Red Corundum)", 400, "Wondrous Item", False, "Uncommon"),
   Item("Elemental Gem (Emerald)", 400, "Wondrous Item", False, "Uncommon"),
   Item("Emerald Pen", 240, "Wondrous Item", False, "Uncommon"),
+  Item("Etherstone Cuffs", 230, "Jewelry", False, "Uncommon"),
   Item("Eversmoking Bottle", 300, "Wondrous Item", False, "Uncommon"),
   Item("Eyes of Charming", 190, "Wondrous Item", True, "Uncommon"),
   Item("Eyes of Minute Seeing", 260, "Wondrous Item", False, "Uncommon"),
@@ -928,7 +929,7 @@ ITEMS = [
   Item("Mac-Fuirmidh Cittern", 400, "Class Item", True, "Uncommon"),
   Item("Mariner's ___", 300, "Armor", False, "Uncommon", ARMOR),
   Item("Medallion of Thoughts", 200, "Jewelry", True, "Uncommon"),
-  Item("Mind Carpapace ___", 500, "Armor", True, "Uncommon", HEAVY_ARMOR),
+  Item("Mind Carapace __", 500, "Armor", True, "Uncommon", HEAVY_ARMOR),
   Item("Mithral ___", 250, "Armor", False, "Uncommon", [a for a in MEDIUM_ARMOR if a.name != "Hide"] + HEAVY_ARMOR),
   Item("Nature's Mantle", 250, "Clothing", True, "Uncommon"),
   Item("Necklace of Adaptation", 330, "Jewelry", True, "Uncommon"),
@@ -957,11 +958,11 @@ ITEMS = [
   Item("Potion of Radiant Resistance (long rest variant)", 270, "Consumable", False, "Uncommon"),
   Item("Potion of Thunder Resistance (long rest variant)", 270, "Consumable", False, "Uncommon"),
   Item("Potion of Water Breathing (long rest variant)", 100, "Consumable", False, "Uncommon"),
-  Item("Figurine of Wondrous Power (Pyrite Plesiousaurus)", 430, "Wondrous Item", False, "Uncommon"),
+  Item("Figurine of Wondrous Power (Pyrite Plesiosaurus)", 430, "Wondrous Item", False, "Uncommon"),
   Item("Quiver of Ehlonna", 200, "Wondrous Item", False, "Uncommon"),
   Item("Ring of Jumping", 150, "Jewelry", True, "Uncommon"),
   Item("Ring of Mind Shielding", 300, "Jewelry", True, "Uncommon"),
-  Item("Ring of Obscurring", 230, "Jewelry", True, "Uncommon"),
+  Item("Ring of Obscuring", 230, "Jewelry", True, "Uncommon"),
   Item("Ring of Puzzler's Wit", 180, "Jewelry", False, "Uncommon"),
   Item("Ring of Swimming", 200, "Jewelry", False, "Uncommon"),
   Item("Ring of Warmth", 320, "Jewelry", True, "Uncommon"),
@@ -1026,7 +1027,7 @@ ITEMS = [
   Item("Arrow-Catching ___", 1400, "Armor", True, "Rare", SHIELDS),
   Item("Astral Shard", 600, "Class Item", True, "Rare"),
   Item("Astromancy Archive", 2500, "Class Item", True, "Rare"),
-  Item("Atlas of Enless Horizons", 2500, "Class Item", True, "Rare"),
+  Item("Atlas of Endless Horizons", 2500, "Class Item", True, "Rare"),
   Item("Bag of Beans", 1800, "Wondrous Item", False, "Rare"),
   Item("Barrier Tattoo (Rare)", 3000, "Tattoo", True, "Rare"),
   Item("Battering __", 800, "Armor", True, "Rare", SHIELDS),
@@ -1074,7 +1075,7 @@ ITEMS = [
   Item("Earth Elemental Essence Shard", 800, "Class Item", True, "Rare"),
   Item("Fire Elemental Essence Shard", 800, "Class Item", True, "Rare"),
   Item("Water Elemental Essence Shard", 800, "Class Item", True, "Rare"),
-  Item("Elixer of Health", 650, "Consumable", False, "Rare"),
+  Item("Elixir of Health", 650, "Consumable", False, "Rare"),
   Item("Elven Chain", 1800, "Armor", False, "Rare", [a for a in ARMOR if a.name == "Chain Shirt"]),
   Item("Etherstone Boots", 1800, "Clothing", True, "Rare"), 
   Item("Far Realm Shard", 1400, "Class Item", True, "Rare"),
@@ -1159,7 +1160,7 @@ ITEMS = [
   Item("Potion of Maximum Power", 750, "Consumable", False, "Rare"),
   Item("Potion of Mind Reading", 400, "Consumable", False, "Rare"),
   Item("Potion of Healing (Superior)", 300, "Consumable", False, "Rare"),
-  Item("Figurine of Wondrous Power (Kyanite Pteronadon)", 850, "Wondrous Item", False, "Rare"),
+  Item("Figurine of Wondrous Power (Kyanite Pteranodon)", 850, "Wondrous Item", False, "Rare"),
   Item("Protective Verses", 2500, "Class Item", True, "Rare"),
   Item("Reveler's Concertina", 1800, "Class Item", True, "Rare"),
   Item("Ring of Animal Influence", 1250, "Jewelry", False, "Rare"),
@@ -1293,7 +1294,7 @@ ITEMS = [
   Item("Carpet of Flying (4 ft. x 6 ft.)", 6600, "Wondrous Item", False, "Very Rare"),
   Item("Carpet of Flying (5 ft. x 7 ft.)", 7200, "Wondrous Item", False, "Very Rare"),
   Item("Carpet of Flying (6 ft. x 9 ft.)", 8000, "Wondrous Item", False, "Very Rare"),
-  Item("Couldron of Rebirth", 20000, "Wondrous Item", True, "Very Rare"),
+  Item("Cauldron of Rebirth", 20000, "Wondrous Item", True, "Very Rare"),
   Item("Cloak of Arachnida", 5800, "Clothing", True, "Very Rare"),
   Item("Clockwork Armor", 5400, "Armor", True, "Very Rare", HEAVY_ARMOR),
   Item("Comet Spear", 8800, "Weapon", True, "Very Rare", [w for w in WEAPONS if w.name == "Spear"]),
@@ -1332,7 +1333,7 @@ ITEMS = [
   Item("Efreeti Bottle", 15000, "Wondrous Item", False, "Very Rare"),
   Item("Elven Thrower", 12100, "Weapon", True, "Very Rare", [w for w in WEAPONS if w.name == "Spear"]),
   Item("Fate Cutter Shears", 7770, "Weapon", True, "Very Rare", DAGGER),
-  Item("Figurine of Wondrous Power (Obsidan Steed)", 10000, "Wondrous Item", False, "Very Rare"),
+  Item("Figurine of Wondrous Power (Obsidian Steed)", 10000, "Wondrous Item", False, "Very Rare"),
   Item("Fools's ___", 7250, "Weapon", True, "Very Rare", SWORDS),
   Item("Forcebreaker ___", 7800, "Weapon", False, "Very Rare", BLUNT),
   Item("Frost Brand ___", 8350, "Weapon", True, "Very Rare", SWORDS),
@@ -1526,11 +1527,10 @@ CLOTHING_ITEMS = [i for i in ITEMS if i.type == "Clothing"]
 CONSUMABLE_ITEMS = [i for i in ITEMS if i.type == "Consumable"]
 JEWELRY_ITEMS = [i for i in ITEMS if i.type == "Jewelry"]
 SPELL_SCROLL_ITEMS = [i for i in ITEMS if i.type == "Spell Scroll"]
-TATOO_ITEMS = [i for i in ITEMS if i.type == "Tattoo"]
+TATTOO_ITEMS = [i for i in ITEMS if i.type == "Tattoo"]
 WEAPON_ITEMS = [i for i in ITEMS if i.type == "Weapon"]
 WAND_ITEMS = [i for i in ITEMS if i.type == "Wand/Staff"]
 GENERAL_ITEMS = [i for i in ITEMS if i.type == "Wondrous Item"]
 
 RARITIES = ["Legendary", "Very Rare", "Rare", "Uncommon", "Common"]
 ITEM_TYPES = ["Wondrous Item", "Armor", "Class Item", "Clothing", "Consumable", "Jewelry", "Spell Scroll", "Tattoo", "Wand/Staff", "Weapon"]
-
