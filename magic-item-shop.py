@@ -33,11 +33,12 @@ def generate_price(item, option = None):
   return price
 
 def create_entry(item, name, price, shop_size):
+  price_string = f"{price} GP"
   stock = randint(1, (RARITIES.index(item.rarity) + 1)) + shop_size if item.type == "Consumable" else "-"
   attunement = item.attunement
   category = item.type
   rarity = item.rarity
-  return [name, price, stock, attunement, category, rarity]
+  return [name, price_string, stock, attunement, category, rarity]
 
 def generate_shop(shop_size, shop_type):
   shop = PrettyTable()
