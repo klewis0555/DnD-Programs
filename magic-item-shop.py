@@ -3,7 +3,7 @@ from prettytable import PrettyTable
 
 from dnd_references import *
 
-def check_input(input, start, max):
+def check_input(input: str, start: int, max: int):
   try:
     number = int(input)
     if number < start or number > max:
@@ -30,9 +30,9 @@ def generate_price(item, option = None):
       price *= 1.25 # ranged weapons get a 25% increase
       if option.name == "Pistol" or option.name == "Musket":
         price *= 1.20 # firearms price increase to 50% increase
-  return price
+  return int(price)
 
-def create_entry(item, name, price, shop_size):
+def create_entry(item, name: str, price: int, shop_size: int):
   price_string = f"{price} GP"
   stock = randint(1, (RARITIES.index(item.rarity) + 1)) + shop_size if item.type == "Consumable" else "-"
   attunement = item.attunement
@@ -40,7 +40,25 @@ def create_entry(item, name, price, shop_size):
   rarity = item.rarity
   return [name, price_string, stock, attunement, category, rarity]
 
-def generate_shop(shop_size, shop_type):
+def create_row(count: int, items: list, item_set: set, shop_size: int):
+  rows = []
+  for i in range(count): # populate items
+    row_item = items[randrange(len(items))] # choose item
+    option = choose_option(row_item)
+    name = generate_name(row_item, option)
+    price = generate_price(row_item, option)
+    if name not in item_set: # don't add duplicate items
+      item_set.add(name)
+      rows.append(create_entry(row_item, name, price, shop_size))
+  return rows
+
+def add_rows_to_shop(rows: list, shop: PrettyTable):
+  rows.sort()
+  for x in range(len(rows)):
+    set_divider = True if x == (len(rows) - 1) else False
+    shop.add_row(rows[x], divider=set_divider)
+
+def generate_shop(shop_size: int, shop_type: int):
   shop = PrettyTable()
   shop_items = set()
   shop.field_names = ["Name", "Price", "Stock", "Attunement", "Category", "Rarity"]
@@ -91,71 +109,25 @@ def generate_shop(shop_size, shop_type):
   very_rare_items = [i for i in items if i.rarity == "Very Rare"]
   legendary_items = [i for i in items if i.rarity == "Legendary"]
 
-  rows = []
-  for i in range(common_count): # populate common items
-    row_item = common_items[randrange(len(common_items))] # choose item
-    option = choose_option(row_item)
-    name = generate_name(row_item, option)
-    price = generate_price(row_item, option)
-    if name not in shop_items: # don't add duplicate items
-      shop_items.add(name)
-      rows.append(create_entry(row_item, name, price, shop_size))
-  for x in range(len(rows)):
-    set_divider = True if x == (len(rows) - 1) else False
-    shop.add_row(rows[x], divider=set_divider)
-  rows = []
-  for i in range(uncommon_count): # populate uncommon items
-    row_item = uncommon_items[randrange(len(uncommon_items))] # choose item
-    option = choose_option(row_item)
-    name = generate_name(row_item, option)
-    price = generate_price(row_item, option)
-    if name not in shop_items: # don't add duplicate items
-      shop_items.add(name)
-      rows.append(create_entry(row_item, name, price, shop_size))
-  for x in range(len(rows)):
-    set_divider = True if x == (len(rows) - 1) else False
-    shop.add_row(rows[x], divider=set_divider)
-  rows = []
-  for i in range(rare_count): # populate rare items
-    row_item = rare_items[randrange(len(rare_items))] # choose item
-    option = choose_option(row_item)
-    name = generate_name(row_item, option)
-    price = generate_price(row_item, option)
-    if name not in shop_items: # don't add duplicate items
-      shop_items.add(name)
-      rows.append(create_entry(row_item, name, price, shop_size))
-  for x in range(len(rows)):
-    set_divider = True if x == (len(rows) - 1) else False
-    shop.add_row(rows[x], divider=set_divider)
-  rows = []
-  for i in range(very_rare_count): # populate very rare items
-    row_item = very_rare_items[randrange(len(very_rare_items))] # choose item
-    option = choose_option(row_item)
-    name = generate_name(row_item, option)
-    price = generate_price(row_item, option)
-    if name not in shop_items: # don't add duplicate items
-      shop_items.add(name)
-      rows.append(create_entry(row_item, name, price, shop_size))
-  for x in range(len(rows)):
-    set_divider = True if x == (len(rows) - 1) else False
-    shop.add_row(rows[x], divider=set_divider)
-  rows = []
-  for i in range(legendary_count): # populate legendary items
-    row_item = legendary_items[randrange(len(legendary_items))] # choose item
-    option = choose_option(row_item)
-    name = generate_name(row_item, option)
-    price = generate_price(row_item, option)
-    if name not in shop_items: # don't add duplicate items
-      shop_items.add(name)
-      rows.append(create_entry(row_item, name, price, shop_size))
-  for x in range(len(rows)):
-    set_divider = True if x == (len(rows) - 1) else False
-    shop.add_row(rows[x], divider=set_divider)
+  common_rows = create_row(common_count, common_items, shop_items, shop_size)
+  add_rows_to_shop(common_rows, shop)
+
+  uncommon_rows = create_row(uncommon_count, uncommon_items, shop_items, shop_size)
+  add_rows_to_shop(uncommon_rows, shop)
+
+  rare_rows = create_row(rare_count, rare_items, shop_items, shop_size)
+  add_rows_to_shop(rare_rows, shop)
+
+  very_rare_rows = create_row(very_rare_count, very_rare_items, shop_items, shop_size)
+  add_rows_to_shop(very_rare_rows, shop)
+
+  legendary_rows = create_row(legendary_count, legendary_items, shop_items, shop_size)
+  add_rows_to_shop(legendary_rows, shop)
 
   return shop
 
 # generate the prompt for the user based on provided options (starting at 1)
-def generate_input_string(start_string, options):
+def generate_input_string(start_string: str, options: list):
   input_string = start_string
   for i in range(len(options)):
     input_string += f"{i+1} for {options[i]}, "

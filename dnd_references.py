@@ -5,12 +5,12 @@ ARROWS = {
   },
   'Common': {
     'weight': 4,
-    'types': ['+1 Arrow', 'Sonic', 'Unbreakable', 'Walloping']
+    'types': ['Sonic', 'Unbreakable', 'Walloping']
   },
   'Uncommon': {
     'weight': 3,
     'types': [
-      '+2 Arrow',
+      '+1 Arrow',
       'Dried Leech'
       'Acid Flux Tipped',
       'Cold Flux Tipped',
@@ -24,7 +24,7 @@ ARROWS = {
   'Rare': {
     'weight': 2,
     'types': [
-      '+3 Arrow',
+      '+2 Arrow',
       'Burst',
       'Concussive',
       'Net',
@@ -43,6 +43,7 @@ ARROWS = {
   'Very Rare': {
     'weight': 1,
     'types': [
+      '+3 Arrow',
       'Ethereal',
       'Splitting',
       'Force Flux Incorporated',
@@ -1105,7 +1106,7 @@ ITEMS = [
   Item("Gem of Seeing", 1500, "Jewelry", True, "Rare"),
   Item("Giant Slayer ___", 1200, "Weapon", False, "Rare", SWORDS + AXES),
   Item("Glamoured ___", 1800, "Armor", False, "Rare", [a for a in ARMOR if a.name == "Studded Leather"]),
-  Item("Glimmering Moon___", 4200, "Weapon", True, "Rare", BOWS),
+  Item("Glimmering Moonbow ___", 4200, "Weapon", True, "Rare", BOWS),
   Item("Gloomwrought ___", 800, "Armor", True, "Rare", ARMOR),
   Item("Glowrune Pigment", 600, "Consumable", False, "Rare"),
   Item("Grasping ___", 500, "Weapon", False, "Rare", [w for w in WEAPONS if w.name == "Whip"]),
