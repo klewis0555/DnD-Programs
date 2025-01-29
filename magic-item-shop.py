@@ -40,7 +40,7 @@ def create_entry(item, name: str, price: int, shop_size: int):
   rarity = item.rarity
   return [name, price_string, stock, attunement, category, rarity]
 
-def create_row(count: int, items: list, item_set: set, shop_size: int):
+def create_rows(count: int, items: list, item_set: set, shop_size: int):
   rows = []
   for i in range(count): # populate items
     row_item = items[randrange(len(items))] # choose item
@@ -109,19 +109,19 @@ def generate_shop(shop_size: int, shop_type: int):
   very_rare_items = [i for i in items if i.rarity == "Very Rare"]
   legendary_items = [i for i in items if i.rarity == "Legendary"]
 
-  common_rows = create_row(common_count, common_items, shop_items, shop_size)
+  common_rows = create_rows(common_count, common_items, shop_items, shop_size)
   add_rows_to_shop(common_rows, shop)
 
-  uncommon_rows = create_row(uncommon_count, uncommon_items, shop_items, shop_size)
+  uncommon_rows = create_rows(uncommon_count, uncommon_items, shop_items, shop_size)
   add_rows_to_shop(uncommon_rows, shop)
 
-  rare_rows = create_row(rare_count, rare_items, shop_items, shop_size)
+  rare_rows = create_rows(rare_count, rare_items, shop_items, shop_size)
   add_rows_to_shop(rare_rows, shop)
 
-  very_rare_rows = create_row(very_rare_count, very_rare_items, shop_items, shop_size)
+  very_rare_rows = create_rows(very_rare_count, very_rare_items, shop_items, shop_size)
   add_rows_to_shop(very_rare_rows, shop)
 
-  legendary_rows = create_row(legendary_count, legendary_items, shop_items, shop_size)
+  legendary_rows = create_rows(legendary_count, legendary_items, shop_items, shop_size)
   add_rows_to_shop(legendary_rows, shop)
 
   return shop
