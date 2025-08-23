@@ -1,6 +1,6 @@
+import sys
 from random import randint, random, randrange
 from prettytable import PrettyTable
-
 from dnd_references import *
 
 def check_input(input: str, start: int, max: int):
@@ -134,17 +134,25 @@ def generate_input_string(start_string: str, options: list):
   input_string = input_string[:-2] + ": "
   return input_string
 
-def run_shop():  
-  shop_size_input = input(generate_input_string("Shop Size? ", ["Extra Small", "Small", "Medium", "Large", "Extra Large"]))
-  shop_size = check_input(shop_size_input, 1, 5)
-  if type(shop_size) != int:
-    return
-  shop_type_input = input(generate_input_string("Shop Type? 0 for General, ", ITEM_TYPES[1:]))
-  shop_type = check_input(shop_type_input, 0, len(ITEM_TYPES) - 1)
-  if type(shop_type) != int:
-    return
+def run_shop():
+  if __name__ == "__main__":
+    if len(sys.argv) > 1:
+      shop_size_input = sys.argv[1]
+    else:
+      shop_size_input = input(generate_input_string("Shop Size? ", ["Extra Small", "Small", "Medium", "Large", "Extra Large"]))
+    shop_size = check_input(shop_size_input, 1, 5)
+    if type(shop_size) != int:
+      return
+    
+    if len(sys.argv) > 2:
+      shop_type_input = sys.argv[2]
+    else:
+      shop_type_input = input(generate_input_string("Shop Type? 0 for General, ", ITEM_TYPES[1:]))
+    shop_type = check_input(shop_type_input, 0, len(ITEM_TYPES) - 1)
+    if type(shop_type) != int:
+      return
 
-  shop = generate_shop(shop_size, shop_type)
-  print(shop)
+    shop = generate_shop(shop_size, shop_type)
+    print(shop)
 
 run_shop()

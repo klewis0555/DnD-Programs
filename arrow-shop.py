@@ -1,6 +1,6 @@
+import sys
 from random import randint, randrange
 from prettytable import PrettyTable
-
 from dnd_references import *
 
 def generate_shop(input):
@@ -37,12 +37,18 @@ def generate_shop(input):
     shop.add_row([item, randint(1,input), f"{randint(6,20)*5} gp", '---', 'Very Rare'])
   return shop
 
-user_input = input("Shop Size? 1 for Small, 2 for Medium, 3 for Large, 4 for Extra Large.\n")
-try:
-  number = int(user_input)
-  if number < 1 or number > 4:
-    raise ValueError
-  shop = generate_shop(number)
-  print(shop)
-except ValueError:
-  print("Invalid input, please enter a number between 1 and 4.")
+if __name__ == "__main__":
+  try:
+    if len(sys.argv) > 1:
+      user_input = sys.argv[1]
+    else:
+      user_input = input("Shop Size? 1 for Small, 2 for Medium, 3 for Large, 4 for Extra Large.\n")
+    number = int(user_input)
+    if number < 1 or number > 4:
+      raise ValueError
+    shop = generate_shop(number)
+    print(shop)
+  except ValueError:
+    print("Invalid input, please enter a number between 1 and 4.")
+
+
