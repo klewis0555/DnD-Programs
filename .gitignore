@@ -2,3 +2,4 @@
 __pycache__/
 .DS_Store
 dnd_misc.py
+.python-version
